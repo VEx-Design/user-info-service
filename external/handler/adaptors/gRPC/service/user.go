@@ -1,4 +1,4 @@
-package grpc_service
+package handler
 
 import (
 	"context"
@@ -9,12 +9,12 @@ import (
 	"user-info-service/internal/core/logic"
 )
 
-type UserServiceGRPC struct {
+type UserHandlerGRPC struct {
 	pb.UnimplementedUserServiceServer
 	UserSrv logic.UserService
 }
 
-func (s *UserServiceGRPC) GetUser(ctx context.Context, req *pb.GetUserRequest) (*pb.GetUserResponse, error) {
+func (s *UserHandlerGRPC) GetUser(ctx context.Context, req *pb.GetUserRequest) (*pb.GetUserResponse, error) {
 	if req.GetUserId() == "" {
 		return nil, errors.New("user ID is required")
 	}

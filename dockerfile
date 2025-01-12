@@ -29,7 +29,7 @@ WORKDIR /app
 COPY --from=builder /app/app-binary .
 
 # Expose the application port
-EXPOSE 6740
+EXPOSE 50051
 
 # Run the application
 CMD ["./app-binary"]
